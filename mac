@@ -133,8 +133,8 @@ brew update
 
 brew_install_or_upgrade 'zsh'
 brew_install_or_upgrade 'git'
-brew_install_or_upgrade 'postgres'
-brew_launchctl_restart 'postgresql'
+brew_install_or_upgrade 'mysql'
+brew_launchctl_restart 'mysql'
 brew_install_or_upgrade 'redis'
 brew_launchctl_restart 'redis'
 brew_install_or_upgrade 'the_silver_searcher'
@@ -146,9 +146,21 @@ brew_install_or_upgrade 'imagemagick'
 brew_install_or_upgrade 'qt'
 brew_install_or_upgrade 'hub'
 brew_install_or_upgrade 'node'
+brew_install_or_upgrade 'awsebcli'
 
 brew_install_or_upgrade 'rbenv'
 brew_install_or_upgrade 'ruby-build'
+
+brew_install_or_upgrade 'caskroom/cask/brew-cask'
+brew cask install 'virtualbox'
+brew cask install 'vagrant'
+brew cask install 'vagrant-manager'
+brew cask install 'google-chrome'
+brew cask install 'adobe-creative-cloud'
+brew cask install 'adobe-photoshop-cc'
+brew cask install 'evernote' 
+brew cask install 'cyberduck'
+brew cask install 'sublime-text'
 
 # shellcheck disable=SC2016
 append_to_zshrc 'eval "$(rbenv init - --no-rehash zsh)"' 1
