@@ -171,14 +171,5 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 
-# Bundler
-gem update --system
-
-gem_install_or_update 'bundler'
-
-fancy_echo "Configuring Bundler ..."
-  number_of_cores=$(sysctl -n hw.ncpu)
-  bundle config --global jobs $((number_of_cores - 1))
-
 # AWS EB CLI
 curl -s https://s3.amazonaws.com/elasticbeanstalk-cli-resources/install-ebcli.py | python
