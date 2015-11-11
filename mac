@@ -159,6 +159,8 @@ brew cask install 'evernote'
 brew cask install 'cyberduck'
 brew cask install 'sublime-text'
 brew cask install 'sequel-pro'
+brew cask install 'skype'
+brew cask install 'hipchat'
 
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
