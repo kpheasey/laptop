@@ -164,8 +164,11 @@ brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
 brew_install_or_upgrade 'libyaml'
 
-ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+# RVM
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 
+# Bundler
 gem update --system
 
 gem_install_or_update 'bundler'
@@ -176,7 +179,3 @@ fancy_echo "Configuring Bundler ..."
 
 # AWS EB CLI
 curl -s https://s3.amazonaws.com/elasticbeanstalk-cli-resources/install-ebcli.py | python
-
-# RVM
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable --ruby
