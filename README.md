@@ -26,7 +26,6 @@ Download, review, then execute the script:
 
 ```sh
 curl --remote-name https://raw.githubusercontent.com/kpheasey/laptop/master/mac
-less mac
 sh mac 2>&1 | tee ~/laptop.log
 ```
 
@@ -65,10 +64,9 @@ What it sets up
 * [Node.js] and [NPM], for running apps and installing JavaScript packages
 * [Postgres] for storing relational data
 * [Qt] for headless JavaScript testing via Capybara Webkit
-* [Rbenv] for managing versions of Ruby
+* [RVM] for managing versions of Ruby
 * [RCM] for managing company and personal dotfiles
 * [Redis] for storing key-value data
-* [Ruby Build] for installing Rubies
 * [Ruby] stable for writing general-purpose code
 * [The Silver Searcher] for finding things in files
 * [Tmux] for saving project state and switching between projects
