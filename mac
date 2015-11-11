@@ -109,7 +109,6 @@ gem_install_or_update() {
   else
     fancy_echo "Installing %s ..." "$1"
     gem install "$@"
-    rbenv rehash
   fi
 }
 
@@ -147,9 +146,7 @@ brew_install_or_upgrade 'qt'
 brew_install_or_upgrade 'hub'
 brew_install_or_upgrade 'node'
 brew_install_or_upgrade 'awsebcli'
-
-brew_install_or_upgrade 'rbenv'
-brew_install_or_upgrade 'ruby-build'
+brew_install_or_upgrade 'gpg'
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 brew cask install 'virtualbox'
@@ -162,23 +159,11 @@ brew cask install 'evernote'
 brew cask install 'cyberduck'
 brew cask install 'sublime-text'
 
-# shellcheck disable=SC2016
-append_to_zshrc 'eval "$(rbenv init - --no-rehash zsh)"' 1
-
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
 brew_install_or_upgrade 'libyaml'
 
 ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
-
-eval "$(rbenv init - zsh)"
-
-if ! rbenv versions | grep -Fq "$ruby_version"; then
-  rbenv install -s "$ruby_version"
-fi
-
-rbenv global "$ruby_version"
-rbenv shell "$ruby_version"
 
 gem update --system
 
@@ -190,3 +175,7 @@ fancy_echo "Configuring Bundler ..."
 
 # AWS EB CLI
 curl -s https://s3.amazonaws.com/elasticbeanstalk-cli-resources/install-ebcli.py | python
+
+# RVM
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
