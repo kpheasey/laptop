@@ -153,13 +153,11 @@ brew cask install 'virtualbox'
 brew cask install 'vagrant'
 brew cask install 'vagrant-manager'
 brew cask install 'google-chrome'
-brew cask install 'adobe-creative-cloud'
 brew cask install 'evernote' 
 brew cask install 'cyberduck'
 brew cask install 'sublime-text'
 brew cask install 'sequel-pro'
 brew cask install 'skype'
-brew cask install 'slack'
 
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
