@@ -2,7 +2,7 @@
 
 # packages
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install htop build-essential git sqlite3 libsqlite3-dev memcached redis-server libxml2 libxml2-dev libxslt1-dev libgmp-dev nodejs
+sudo apt-get install -y htop build-essential git sqlite3 libsqlite3-dev memcached redis-server libxml2 libxml2-dev libxslt1-dev libgmp-dev nodejs
 
 # postgresql
 sudo apt-get install postgresql postgresql-contrib libpq-dev
