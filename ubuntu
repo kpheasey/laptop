@@ -1,14 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# packages
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install -y htop build-essential git sqlite3 libsqlite3-dev memcached redis-server libxml2 libxml2-dev libxslt1-dev libgmp-dev nodejs
+echo "Updating packages..."
+  sudo apt-get update && sudo apt-get upgrade -y
 
-# mysql
-debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
-sudo apt-get install -y mysql-server libmysqlclient-dev
+echo "Installing packages..."
+  sudo apt-get install build-essential git sqlite3 libsqlite3-dev libxml2 libxml2-dev libxslt1-dev libgmp-dev imagemagick redis-server
 
-update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+echo "Installing MySQL"
+  debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+  debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+  sudo apt-get install mysql-server libmysqlclient-dev -y
 
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
+echo "Installing RVM"
+  curl -sSL https://get.rvm.io | bash -s stable --ruby
