@@ -14,3 +14,5 @@ debconf-set-selections <<< 'mysql-server mysql-server/root_password_again passwo
 sudo apt-get install mysql-server libmysqlclient-dev
 
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
