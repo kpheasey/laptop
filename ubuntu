@@ -3,13 +3,31 @@
 echo "Updating packages..."
   sudo apt-get update && sudo apt-get upgrade -y
 
-echo "Installing packages..."
-  sudo apt-get install -y build-essential git sqlite3 libsqlite3-dev libxml2 libxml2-dev libxslt1-dev libgmp-dev imagemagick redis-server
+echo "Installing basic packages..."
+  sudo apt-get install -y build-essential git sqlite3 libsqlite3-dev libxml2 libxml2-dev libxslt1-dev libgmp-dev imagemagick
 
-echo "Installing MySQL"
-  debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-  debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+echo "Installing MySQL..."
+  echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
+  echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
   sudo apt-get install mysql-server libmysqlclient-dev -y
 
-echo "Installing RVM"
+echo "Installing RVM..."
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+echo "Installing Terminator..."
+  sudo apt-get install terminator -y
+
+echo "Installring Redis..."
+  sudo apt-get install redis-server -y
+
+echo "Installing Node.js..."
+  curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  mkdir ~/.npm-global
+  npm config set prefix '~/.npm-global'
+  export PATH=~/.npm-global/bin:$PATH
+  source ~/.profile
+
+echo "Installing Bower..."
+  npm install -g bower
