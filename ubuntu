@@ -10,17 +10,17 @@ echo "Installing basic packages..."
 echo "Installing MySQL..."
   echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
   echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
-  sudo apt-get install mysql-server libmysqlclient-dev -y
+  sudo apt-get install -y mysql-server libmysqlclient-dev
 
 echo "Installing RVM..."
   gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 echo "Installing Terminator..."
-  sudo apt-get install terminator -y
+  sudo apt-get install -y terminator
 
 echo "Installring Redis..."
-  sudo apt-get install redis-server -y
+  sudo apt-get install -y redis-server
 
 echo "Installing Node.js w/ Bower..."
   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
@@ -32,7 +32,7 @@ echo "Installing Node.js w/ Bower..."
   npm install -g bower
 
 echo "Installing AWS..."
-  sudo apt-get install python2.7
+  sudo apt-get install -y python2.7
   curl -O https://bootstrap.pypa.io/get-pip.py
   sudo python27 get-pip.py
   sudo pip install awscli
