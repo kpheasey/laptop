@@ -4,7 +4,8 @@ echo "Updating packages..."
   sudo apt-get update && sudo apt-get upgrade -y
 
 echo "Installing basic packages..."
-  sudo apt-get install -y build-essential git sqlite3 libsqlite3-dev libxml2 libxml2-dev libxslt1-dev libgmp-dev imagemagick
+  sudo apt-get install -y build-essential openssh libxml2 libxml2-dev libxslt1-dev libgmp-dev
+  sudo apt-get install -y git git-core sqlite3 libsqlite3-dev imagemagick
 
 echo "Installing MySQL..."
   echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
@@ -21,13 +22,18 @@ echo "Installing Terminator..."
 echo "Installring Redis..."
   sudo apt-get install redis-server -y
 
-echo "Installing Node.js..."
+echo "Installing Node.js w/ Bower..."
   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
   sudo apt-get install -y nodejs
   mkdir ~/.npm-global
   npm config set prefix '~/.npm-global'
   export PATH=~/.npm-global/bin:$PATH
   source ~/.profile
-
-echo "Installing Bower..."
   npm install -g bower
+
+echo "Installing AWS..."
+  sudo apt-get install python2.7
+  curl -O https://bootstrap.pypa.io/get-pip.py
+  sudo python27 get-pip.py
+  sudo pip install awscli
+  sudo pip install awsebcli
