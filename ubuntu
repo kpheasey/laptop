@@ -4,14 +4,10 @@
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y htop build-essential git sqlite3 libsqlite3-dev memcached redis-server libxml2 libxml2-dev libxslt1-dev libgmp-dev nodejs
 
-# postgresql
-sudo apt-get install postgresql postgresql-contrib libpq-dev
-sudo -u postgres createuser --superuser vagrant
-
 # mysql
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
-sudo apt-get install mysql-server libmysqlclient-dev
+sudo apt-get install -y mysql-server libmysqlclient-dev
 
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
