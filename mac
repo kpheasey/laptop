@@ -128,7 +128,7 @@ else
 fi
 
 fancy_echo "Updating Homebrew formulas ..."
-brew update
+brew update && brew upgrade
 
 brew_install_or_upgrade 'zsh'
 brew_install_or_upgrade 'git'
@@ -136,17 +136,11 @@ brew_install_or_upgrade 'mysql'
 brew_launchctl_restart 'mysql'
 brew_install_or_upgrade 'redis'
 brew_launchctl_restart 'redis'
-brew_install_or_upgrade 'the_silver_searcher'
-brew_install_or_upgrade 'vim'
-brew_install_or_upgrade 'ctags'
-brew_install_or_upgrade 'tmux'
-brew_install_or_upgrade 'reattach-to-user-namespace'
 brew_install_or_upgrade 'imagemagick'
 brew_install_or_upgrade 'qt'
-brew_install_or_upgrade 'hub'
 brew_install_or_upgrade 'node'
-brew_install_or_upgrade 'awsebcli'
 brew_install_or_upgrade 'gpg'
+brew_install_or_upgrade 'libyaml'
 
 brew install caskroom/cask/brew-cask
 brew cask install 'virtualbox'
@@ -159,15 +153,17 @@ brew cask install 'sublime-text'
 brew cask install 'sequel-pro'
 brew cask install 'iterm2'
 
+# openssl
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
-brew_install_or_upgrade 'libyaml'
 
 # RVM
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable
-source ~/.rvm/scripts/rvm
-source ~/.rvm/scripts/rvm install ruby --disable-binaries
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# aws
+sudo easy_install pip
+sudo pip install awscli awsebcli
