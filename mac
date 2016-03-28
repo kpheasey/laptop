@@ -138,7 +138,7 @@ brew_install_or_upgrade 'redis'
 brew_launchctl_restart 'redis'
 brew_install_or_upgrade 'imagemagick'
 brew_install_or_upgrade 'qt'
-brew_install_or_upgrade 'node'
+brew_install_or_upgrade 'homebrew/versions/node4-lts'
 brew_install_or_upgrade 'gpg'
 brew_install_or_upgrade 'libyaml'
 
