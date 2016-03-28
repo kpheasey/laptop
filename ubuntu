@@ -31,4 +31,5 @@ echo "Installing Node.js w/ Bower..."
 
 echo "Installing AWS..."
   sudo apt-get install -y python2.7 python-dev libxml2-dev libxslt-dev python-pip
-  sudo pip install awscli awsebcli
+  sudo pip install awscli
+  sudo pip install awsebcli
