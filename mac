@@ -149,9 +149,9 @@ brew cask install 'vagrant-manager'
 brew cask install 'google-chrome'
 brew cask install 'evernote' 
 brew cask install 'cyberduck'
-brew cask install 'sublime-text'
 brew cask install 'sequel-pro'
 brew cask install 'iterm2'
+brew cask install 'atom'
 
 # openssl
 brew_install_or_upgrade 'openssl'
