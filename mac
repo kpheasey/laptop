@@ -152,6 +152,7 @@ brew cask install 'cyberduck'
 brew cask install 'sequel-pro'
 brew cask install 'iterm2'
 brew cask install 'atom'
+brew cask install 'chefdk'
 
 # openssl
 brew_install_or_upgrade 'openssl'
