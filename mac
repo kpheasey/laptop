@@ -131,6 +131,8 @@ fancy_echo "Updating Homebrew formulas ..."
 brew update && brew upgrade
 
 brew_install_or_upgrade 'zsh'
+brew_install_or_upgrade 'gnupg'
+brew_install_or_upgrade 'gnupg2'
 brew_install_or_upgrade 'git'
 brew_install_or_upgrade 'mysql'
 brew_launchctl_restart 'mysql'
